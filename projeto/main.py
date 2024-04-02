@@ -8,6 +8,10 @@ print("Por Favor, Escolha entre 1 ou 2")
 opcao = input("Qual Usuário acima você é: ")
 print("=====================================")
 
+if(opcao != "1") and (opcao != "2"):
+    print("ERRO NA ESCOLHA!!!")
+    print("Por Favor, Escolha Entre 1 ou 2.")
+    print("Tente Novamente.")
 
 preco_passagem = 6
 saldo_usuario = 0
@@ -324,7 +328,7 @@ if(opcao == "1" or encerrar_sessao == 1):
                         print("ERRO! Crédito Insuficiente")
                         print("Crédito Atual:", saldo_usuario, "Créditos")
     if(opcao != "1" and opcao != "2" and opcao != "3"):
-        print("Opção Invalida. Tente Novamente!!!")
+        print("Opção Invalida.")
     #   Encerrar Sessão
     print("ENCERRANDO SESSÃO")
     print("Por Favor, Digite S ou N!!!")
@@ -638,5 +642,5 @@ if(opcao == "1" or encerrar_sessao == 1):
                             if(saldo_usuario <= preco_passagem):
                                 print("ERRO! Crédito Insuficiente")
                                 print("Crédito Atual:", saldo_usuario, "Créditos")
-            if(opcao != "1" and opcao != "2" and opcao != "3"):
-                print("Opção Invalida. Tente Novamente!!!")
+    if(opcao != "1" and opcao != "2" and opcao != "3"):
+        print("Opção Invalida.")
