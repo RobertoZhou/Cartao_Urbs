@@ -50,6 +50,9 @@ if(opcao == "2"):
     if(senha_admin != senha_acesso):
         print("SENHA INCORRETA!!!")
         print("ENCERRANDO O PROGRAMA!!!") 
+    if(opcao == "4"):
+        encerrar_sessao = 1
+        opcao = "0"
 #   Visualizar Créditos do Usuário
     if(opcao == "1"):
         print("O Usuário Possui: R$", saldo_usuario, "Créditos")
@@ -359,6 +362,9 @@ if(opcao == "1" or encerrar_sessao == 1):
                 opcao = input("Digite a Sua Opção:")
                 print("=====================================")
         #   Erro de senha invalida
+        if(opcao == "4"):
+            encerrar_sessao = 1
+            opcao = "0"
         if(senha_admin != senha_acesso):
             print("SENHA INCORRETA!!!")
             print("ENCERRANDO O PROGRAMA!!!") 
