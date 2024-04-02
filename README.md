@@ -1,6 +1,6 @@
 # Cartao_Urbs
  Trabalho da Faculdade
-
+### OBS: Usar Somente o que foi ensinado
 #### Descrição:
 - Implementar um programa em Python capaz de
 simular a utilização e manutenção de um Cartão de
