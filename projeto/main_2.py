@@ -98,6 +98,7 @@ while encerrar_programa:
                         print("=====================================")
                         deposito_credito = input("Digite o Valor Que Gostaria de Depositar: R$").strip()
                         print("=====================================")
+                        #   Verificar se e um numero
                         if("1" in deposito_credito or "2" in deposito_credito or "3" in deposito_credito or "4" in deposito_credito or "5" in deposito_credito or "6" in deposito_credito or "7" in deposito_credito or "8" in deposito_credito or "9" in deposito_credito or "0" in deposito_credito):
                             saldo_credito = saldo_credito + float(deposito_credito)
                             print("Saldo Atual: R$", saldo_credito)
@@ -167,17 +168,21 @@ while encerrar_programa:
                 #   Visualizar Preço da Passagem
                 elif(opcao == "2"):
                     print("Preço da Passagem: R$", preco_passagem)
+                #   Atualizar o Valor da Passagem
                 elif(opcao == "3"):
                     novo_preço = input("Digite o Novo Preço da Passagem: R$")
+                    #   Verificar se e um numero
                     if("1" in novo_preço or "2" in novo_preço or "3" in novo_preço or "4" in novo_preço or "5" in novo_preço or "6" in novo_preço or "7" in novo_preço or "8" in novo_preço or "9" in novo_preço or "0" in novo_preço):
                         preco_passagem = novo_preço
                     else:
                         print("Valor Informado Invalido!!!")
+                #   Atualizar Senha de Administrador    
                 elif(opcao == "4"):
                     print("Administrador:", admin_nome)
                     admin_senha = input("Digite a Nova Senha: ")
                     print("Nova Senha Cadastrado Com Sucesso")
                     print("Nova Senha:", admin_senha)
+                #   Encerrar Sessão
                 elif(opcao == "5"):
                     print("ENCERRANDO SESSÃO!!!")
                     parada_login = False
