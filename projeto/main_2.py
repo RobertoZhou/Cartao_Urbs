@@ -51,7 +51,8 @@ while encerrar_programa:
     if(opcao == "1"):
         #   Login Cliente
         contador = 4
-        while contador != 0:
+        encerrar_login = True
+        while encerrar_login:
             print("            LOGIN CLIENTE")
             print("=====================================")
             login_nome_usuario = input("Digite o Nome de Usuário: ")
@@ -64,8 +65,9 @@ while encerrar_programa:
                 contador = contador - 1
                 if(contador == 0):
                     encerrar_login = False
+                    print("Voltando Para o Menu!!!")
                 else:
-                    print("Chance de Tentativa:", contador, "Tentativa")
+                    print("Tentativas Restantes:", contador, "Tentativa")
         #   Menu Cliente
         if(login_nome_usuario == usuario_nome and login_senha_usuario == usuario_senha):
             parada_login = True
@@ -144,8 +146,9 @@ while encerrar_programa:
                 contador = contador - 1
                 if(contador == 0):
                     encerrar_login = False
+                    print("Voltando Para o Menu!!!")
                 else:
-                    print("Chance de Tentativa:", contador, "Tentativa")
+                    print("Tentativas Restantes:", contador, "Tentativa")
         #   Menu Administrador
         if(login_nome_admin == admin_nome and login_senha_admin == admin_senha):
             parada_login = True
