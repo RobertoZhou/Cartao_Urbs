@@ -1,17 +1,17 @@
 verificar_registro = 0
-while True:
+while verificar_registro < 4:
     if(verificar_registro == 0):
         print("=====================================")
         print("         REGISTRAR CLIENTE")
         print("=====================================")
         usuario_nome = input("Digite Seu Nome de Usúario: ")
-        if(usuario_nome.strip() != ""):
+        if(usuario_nome != "" and usuario_nome != " "):
             verificar_registro = verificar_registro + 1
         else:
             print("Por Favor, Preencha o Campo com seu Nome!!!")
     if(verificar_registro == 1):
         usuario_senha = input("Digite Sua Senha: ")
-        if(usuario_senha.strip() != ""):
+        if(usuario_senha != "" and usuario_senha != " "):
             verificar_registro = verificar_registro + 1
         else:
             print("Por Favor, Preencha o Campo Com Sua Senha!!!")
@@ -21,22 +21,21 @@ while True:
         print("      REGISTRAR ADMINISTRADOR")
         print("=====================================")
         admin_nome = input("Digite Seu Nome: ")
-        if(admin_nome.strip() != ""):
+        if(admin_nome != "" and admin_nome != " "):
             verificar_registro = verificar_registro + 1
         else:
             print("Por Favor, Preencha o Campo com seu Nome!!!")
     if(verificar_registro == 3):
         admin_senha = input("Digite Sua Senha: ")
-        if(admin_senha.strip() != ""):
+        if(admin_senha != "" and admin_senha != " "):
             verificar_registro = verificar_registro + 1
             preco_passagem = float(input("Por Favor, Digite o Valor da Passagem: R$"))
-            break
         else:
             print("Por Favor, Preencha o Campo Com Sua Senha!!!")
 
+opcao = 0
 saldo_credito = 0
-encerrar_programa = True
-while encerrar_programa:
+while opcao != 3:
     print("=====================================")
     print("                 MENU")
     print("=====================================")
@@ -45,33 +44,30 @@ while encerrar_programa:
     print("3 - Encerrar Sessão.")
     print("=====================================")
     print("Por Favor, Escolha entre [ 1, 2 e 3 ]")
-    opcao = input("Qual Usuário acima você é: ")
+    opcao = int(input("Qual Usuário acima você é: "))
     print("=====================================")
 
-    if(opcao == "1"):
+    if(opcao == 1):
         #   Login Cliente
-        contador = 4
-        encerrar_login = True
-        while encerrar_login:
+        tentativa = 4
+        while tentativa > 0:
             print("            LOGIN CLIENTE")
             print("=====================================")
             login_nome_usuario = input("Digite o Nome de Usuário: ")
             login_senha_usuario = input("Digite a Senha de Usuário: ")
             print("=====================================")
             if(login_nome_usuario == usuario_nome and login_senha_usuario == usuario_senha):
-                contador = 0
+                tentativa = 0
             else:
                 print("Nome ou Senha Invalida!!!")
-                contador = contador - 1
-                if(contador == 0):
-                    encerrar_login = False
+                tentativa = tentativa - 1
+                print("Tentativas Restantes:", tentativa, "Tentativa")
+                print("=====================================")
+                if(tentativa == 0):
                     print("Voltando Para o Menu!!!")
-                else:
-                    print("Tentativas Restantes:", contador, "Tentativa")
         #   Menu Cliente
         if(login_nome_usuario == usuario_nome and login_senha_usuario == usuario_senha):
-            parada_login = True
-            while parada_login:
+            while opcao != 5:
                 print("=====================================")
                 print("             MENU CLIENTE")
                 print("=====================================")
@@ -82,33 +78,26 @@ while encerrar_programa:
                 print("5 - ENCERRANDO SESSÃO.")
                 print("=====================================")
                 print("Por Favor, Escolha entre [ 1, 2, 3, 4 e 5 ]")
-                opcao = input("Digite a Sua Opção:")
+                opcao = int(input("Digite a Sua Opção:"))
                 print("=====================================")
                 #   Visualizar Créditos
-                if(opcao == "1"):
+                if(opcao == 1):
                     print("O Cliente:", usuario_nome)
                     print("Créditos Possuído: R$", saldo_credito)
 
                 #   Depositar Crédito
-                elif(opcao == "2"):
-                    parada = True
-                    while parada:
+                elif(opcao == 2):
                         print("=====================================")
                         print("O Cliente:", usuario_nome)
                         print("Créditos Possuído: R$", saldo_credito)
                         print("Valor da Passagem: R$", preco_passagem)
                         print("=====================================")
-                        deposito_credito = input("Digite o Valor Que Gostaria de Depositar: R$").strip()
+                        deposito_credito = float(input("Digite o Valor Que Gostaria de Depositar: R$"))
                         print("=====================================")
-                        #   Verificar se e um numero
-                        if("1" in deposito_credito or "2" in deposito_credito or "3" in deposito_credito or "4" in deposito_credito or "5" in deposito_credito or "6" in deposito_credito or "7" in deposito_credito or "8" in deposito_credito or "9" in deposito_credito or "0" in deposito_credito):
-                            saldo_credito = saldo_credito + float(deposito_credito)
-                            print("Saldo Atual: R$", saldo_credito)
-                            parada = False
-                        else:
-                            print("Valor Informado Invalido!!!")
+                        saldo_credito = saldo_credito + deposito_credito
+                        print("Saldo Atual: R$", saldo_credito)
                 #   Utilizar o Cartão
-                elif(opcao == "3"):
+                elif(opcao == 3):
                     if(saldo_credito >= preco_passagem):
                         print("Preço da Passagem: R$", preco_passagem)
                         print("PASSAGEM PASSADO COM SUCESSO!!!")
@@ -120,39 +109,37 @@ while encerrar_programa:
                         print("Valor da Passagem: R$", preco_passagem)
                         print("Crédito Atual: R$", saldo_credito, "Créditos")
                 #   Atualizar Senha
-                elif(opcao == "4"):
+                elif(opcao == 4):
                     print("Cliente:", usuario_nome)
                     usuario_senha = input("Digite a Nova Senha: ")
                     print("Nova Senha Cadastrado Com Sucesso")
                     print("Nova Senha:", usuario_senha)
-                elif(opcao == "5"):
+                elif(opcao == 5):
                     print("ENCERRANDO SESSÃO!!!")
-                    parada_login = False
+                #   Erro de Opção
                 else:
                     print("OPÇÃO INVALIDA!!!")
-    if(opcao == "2"):
+    elif(opcao == 2):
         #   Login ADMINISTRADOR
-        contador = 4
-        while contador != 0:
+        tentativa = 4
+        while tentativa > 0:
             print("           LOGIN ADMINISTRADOR")
             print("=====================================")
             login_nome_admin = input("Digite o Nome de ADMINISTRADOR: ")
             login_senha_admin = input("Digite a Senha de ADMINISTRADOR: ")
             print("=====================================")
             if(login_nome_admin == admin_nome and login_senha_admin == admin_senha):
-                contador = 0
+                tentativa = 0
             else:
                 print("Nome ou Senha Invalida!!!")
-                contador = contador - 1
-                if(contador == 0):
-                    encerrar_login = False
+                tentativa = tentativa - 1
+                print("Tentativas Restantes:", tentativa, "Tentativa")
+                print("=====================================")
+                if(tentativa == 0):
                     print("Voltando Para o Menu!!!")
-                else:
-                    print("Tentativas Restantes:", contador, "Tentativa")
         #   Menu Administrador
         if(login_nome_admin == admin_nome and login_senha_admin == admin_senha):
-            parada_login = True
-            while parada_login:
+            while opcao != 5:
                 print("=====================================")
                 print("         MENU ADMINISTRADOR")
                 print("=====================================")
@@ -162,35 +149,31 @@ while encerrar_programa:
                 print("4 - Atualizar Senha de Administrador.")
                 print("5 - ENCERRANDO SESSÃO.")
                 print("=====================================")
-                opcao = input("Digite a Sua Opção:")
+                opcao = int(input("Digite a Sua Opção:"))
                 print("=====================================")
                 #   Visualizar Créditos do Usuário
-                if(opcao == "1"):
+                if(opcao == 1):
                     print("Nome do Cliente:", usuario_nome)
                     print("Créditos Atuais: R$", saldo_credito)
                 #   Visualizar Preço da Passagem
-                elif(opcao == "2"):
+                elif(opcao == 2):
                     print("Preço da Passagem: R$", preco_passagem)
                 #   Atualizar o Valor da Passagem
-                elif(opcao == "3"):
-                    novo_preço = input("Digite o Novo Preço da Passagem: R$")
-                    #   Verificar se e um numero
-                    if("1" in novo_preço or "2" in novo_preço or "3" in novo_preço or "4" in novo_preço or "5" in novo_preço or "6" in novo_preço or "7" in novo_preço or "8" in novo_preço or "9" in novo_preço or "0" in novo_preço):
-                        preco_passagem = novo_preço
-                    else:
-                        print("Valor Informado Invalido!!!")
+                elif(opcao == 3):
+                    preco_passagem = float(input("Digite o Novo Preço da Passagem: R$"))
                 #   Atualizar Senha de Administrador    
-                elif(opcao == "4"):
+                elif(opcao == 4):
                     print("Administrador:", admin_nome)
                     admin_senha = input("Digite a Nova Senha: ")
                     print("Nova Senha Cadastrado Com Sucesso")
                     print("Nova Senha:", admin_senha)
-                #   Encerrar Sessão
-                elif(opcao == "5"):
+                #   Encerrando Sessão
+                elif(opcao == 5):
                     print("ENCERRANDO SESSÃO!!!")
-                    parada_login = False
-    elif(opcao == "3"):
+                #   Erro de Opção
+                else:
+                    print("OPÇÃO INVALIDA!!!")
+    elif(opcao == 3):
         print("ENCERRANDO O PROGRAMA!!!")
-        encerrar_programa = False
     else:
         print("OPÇÃO INVALIDA!!!")
