@@ -6,39 +6,39 @@ while verificar_registro < 4:
         print("=====================================")
         print("Digite Apenas Números!!!")
         usuario_id = int(input("Digite Seu ID de Usuário: "))
-        if(usuario_id >= 0):
+        if(usuario_id > 0):
             verificar_registro = verificar_registro + 1
         else:
-            print("Por Favor, Preencha o Campo Com Um ID, Com Um Número maior POSITIVO!!!")
+            print("Por Favor, Preencha o Campo Com Um ID, Maior Que ZERO!!!")
     if(verificar_registro == 1):
-        usuario_senha = input("Digite Sua Senha: ")
-        if(usuario_senha >= 0):
+        usuario_senha = int(input("Digite Sua Senha: "))
+        if(usuario_senha > 0):
             verificar_registro = verificar_registro + 1
         else:
-            print("Por Favor, Preencha o Campo Com Uma Senha, Com Um Número POSITIVO!!!")
+            print("Por Favor, Preencha o Campo Com Uma Senha, Maior Que ZERO!!!")
 
     if(verificar_registro == 2):
         print("=====================================")
         print("      REGISTRAR ADMINISTRADOR")
         print("=====================================")
-        print("Digite Apenas Números")
+        print("Digite Apenas Números!!!")
         admin_id = int(input("Digite Seu ID de Administrador: "))
-        if(admin_id >= 0):
+        if(admin_id > 0):
             verificar_registro = verificar_registro + 1
         else:
-            print("Por Favor, Preencha o Campo Com Um ID, Com Um Número POSITIVO!!!")
+            print("Por Favor, Preencha o Campo Com Um ID, Maior Que ZERO!!!")
     if(verificar_registro == 3):
-        admin_senha = input("Digite Sua Senha: ")
-        if(admin_senha >= 0):
+        admin_senha = int(input("Digite Sua Senha: "))
+        if(admin_senha > 0):
             verificar_registro = verificar_registro + 1
             preco_passagem = float(input("Por Favor, Digite o Valor da Passagem: R$"))
             if(preco_passagem > 0):
-                print("Preço da Passagem:", preco_passagem)
+                print("Preço da Passagem: R$", preco_passagem)
             else:
                 print("ERRO NO PREÇO DA PASSAGEM!!!")
-                print("Digite Um Valor Maior que 0!!!")
+                print("Digite Um Valor Maior que ZERO!!!")
         else:
-            print("Por Favor, Preencha o Campo Com Uma Senha, Com Um Número maior POSITIVO!!!")
+            print("Por Favor, Preencha o Campo Com Uma Senha, Maior Que ZERO!!!")
 
 opcao = 0
 saldo_credito = 0
@@ -60,8 +60,9 @@ while opcao != 3:
         while tentativa > 0:
             print("            LOGIN USUÁRIO")
             print("=====================================")
-            login_id_usuario = input("Digite o ID de USUÁRIO: ")
-            login_senha_usuario = input("Digite a Senha de USUÁRIO: ")
+            print("Digite Apenas Números!!!")
+            login_id_usuario = int(input("Digite o ID de USUÁRIO: "))
+            login_senha_usuario = int(input("Digite a Senha de USUÁRIO: "))
             print("=====================================")
             if(login_id_usuario == usuario_id and login_senha_usuario == usuario_senha):
                 tentativa = 0
@@ -108,7 +109,7 @@ while opcao != 3:
                             print("Saldo Atual: R$", saldo_credito)
                         else:
                             print("ERRO DE DEPOSITO!!!")
-                            print("Deposite Um Valor Maior que 0!!!")
+                            print("Deposite Um Valor Maior que ZERO!!!")
                 #   Utilizar o Cartão
                 elif(opcao == 3):
                     if(saldo_credito >= preco_passagem):
@@ -116,7 +117,7 @@ while opcao != 3:
                         print("PASSAGEM PASSADO COM SUCESSO!!!")
                         print("Boa-Viagem, Cliente do ID:", usuario_id)
                         saldo_credito = saldo_credito - preco_passagem
-                        print("Saldo Restante:", saldo_credito, "Créditos")
+                        print("Saldo Restante: R$", saldo_credito, "Créditos")
                     else:
                         print("ERRO! Créditos Insuficiente!!!")
                         print("Valor da Passagem: R$", preco_passagem)
@@ -124,6 +125,7 @@ while opcao != 3:
                 #   Atualizar Senha
                 elif(opcao == 4):
                     print("ID do Usuário:", usuario_id)
+                    print("Digite Apenas Números!!!")
                     usuario_senha = int(input("Digite a Nova Senha: "))
                     print("Nova Senha Cadastrado Com Sucesso")
                     print("Nova Senha:", usuario_senha)
@@ -138,13 +140,14 @@ while opcao != 3:
         while tentativa > 0:
             print("           LOGIN ADMINISTRADOR")
             print("=====================================")
-            login_id_admin = input("Digite o ID de ADMINISTRADOR: ")
-            login_senha_admin = input("Digite a Senha de ADMINISTRADOR: ")
+            print("Digite Apenas Números!!!")
+            login_id_admin = int(input("Digite o ID de ADMINISTRADOR: "))
+            login_senha_admin = int(input("Digite a Senha de ADMINISTRADOR: "))
             print("=====================================")
             if(login_id_admin == admin_id and login_senha_admin == admin_senha):
                 tentativa = 0
             else:
-                print("Nome ou Senha Invalida!!!")
+                print("ID ou Senha Invalida!!!")
                 tentativa = tentativa - 1
                 print("Tentativas Restantes:", tentativa, "Tentativa")
                 print("=====================================")
@@ -173,18 +176,19 @@ while opcao != 3:
                     print("Preço da Passagem: R$", preco_passagem)
                 #   Atualizar o Valor da Passagem
                 elif(opcao == 3):
-                    erro_preco = 0
-                    while erro_preco == 0:
-                        preco_passagem = float(input("Digite o Novo Preço da Passagem: R$"))
-                        if(preco_passagem > 0):
+                    novo_preco_passagem = 0
+                    while novo_preco_passagem <= 0:
+                        novo_preco_passagem = float(input("Digite o Novo Preço da Passagem: R$"))
+                        if(novo_preco_passagem > 0):
+                            preco_passagem = novo_preco_passagem
                             print("Novo Preço da Passagem: R$", preco_passagem)
-                            erro_preco = 1
                         else:
                             print("ERRO NO VALOR DA PASSAGEM!!!")
-                            print("Digite Um Valor Maior Que 0!!!")
+                            print("Digite Um Valor Maior Que ZERO!!!")
                 #   Atualizar Senha de Administrador    
                 elif(opcao == 4):
                     print("ID do Administrador:", admin_id)
+                    print("Digite Apenas Números!!!")
                     admin_senha = int(input("Digite a Nova Senha: "))
                     print("Nova Senha Cadastrado Com Sucesso")
                     print("Nova Senha:", admin_senha)
