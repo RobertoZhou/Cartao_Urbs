@@ -1,5 +1,6 @@
 verificar_registro = 0
 while verificar_registro < 4:
+    #   Registrar CLIENTE
     if(verificar_registro == 0):
         print("=====================================")
         print("         REGISTRAR CLIENTE")
@@ -16,7 +17,7 @@ while verificar_registro < 4:
             verificar_registro = verificar_registro + 1
         else:
             print("Por Favor, Preencha o Campo Com Uma Senha, Maior Que ZERO!!!")
-
+    #   Registrar ADMINISTRADOR
     if(verificar_registro == 2):
         print("=====================================")
         print("      REGISTRAR ADMINISTRADOR")
@@ -42,6 +43,7 @@ while verificar_registro < 4:
 
 opcao = 0
 saldo_credito = 0
+#   Menu de Login
 while opcao != 3:
     print("=====================================")
     print("                 MENU")
