@@ -31,13 +31,16 @@ while verificar_registro < 4:
     if(verificar_registro == 3):
         admin_senha = int(input("Digite Sua Senha: "))
         if(admin_senha > 0):
-            verificar_registro = verificar_registro + 1
-            preco_passagem = float(input("Por Favor, Digite o Valor da Passagem: R$"))
-            if(preco_passagem > 0):
-                print("Preço da Passagem: R$", preco_passagem)
-            else:
-                print("ERRO NO PREÇO DA PASSAGEM!!!")
-                print("Digite Um Valor Maior que ZERO!!!")
+            while(verificar_registro < 4):
+                print("=====================================")
+                preco_passagem = float(input("Por Favor, Digite o Valor da Passagem: R$"))
+                print("=====================================")
+                if(preco_passagem > 0):
+                    verificar_registro = verificar_registro + 1
+                    print("Preço da Passagem: R$", preco_passagem)
+                else:
+                    print("ERRO NO PREÇO DA PASSAGEM!!!")
+                    print("Digite Um Valor Maior que ZERO!!!")
         else:
             print("Por Favor, Preencha o Campo Com Uma Senha, Maior Que ZERO!!!")
 
