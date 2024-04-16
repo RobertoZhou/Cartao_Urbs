@@ -58,8 +58,7 @@ while opcao != 3:
 
     if(opcao == 1):
         #   Login Cliente
-        tentativa = 4
-        while tentativa > 0:
+        for contador in range(3, -1, -1):
             print("            LOGIN USUÁRIO")
             print("=====================================")
             print("Digite Apenas Números!!!")
@@ -67,13 +66,12 @@ while opcao != 3:
             login_senha_usuario = int(input("Digite a Senha de USUÁRIO: "))
             print("=====================================")
             if(login_id_usuario == usuario_id and login_senha_usuario == usuario_senha):
-                tentativa = 0
+                break
             else:
                 print("ID ou Senha Invalida!!!")
-                tentativa = tentativa - 1
-                print("Tentativas Restantes:", tentativa, "Tentativa")
+                print("Tentativas Restantes:", contador, "Tentativa")
                 print("=====================================")
-                if(tentativa == 0):
+                if(contador == 0):
                     print("Voltando Para o Menu!!!")
         #   Menu Cliente
         if(login_id_usuario == usuario_id and login_senha_usuario == usuario_senha):
@@ -138,8 +136,7 @@ while opcao != 3:
                     print("OPÇÃO INVALIDA!!!")
     elif(opcao == 2):
         #   Login ADMINISTRADOR
-        tentativa = 4
-        while tentativa > 0:
+        for contador in range(3, -1, -1):
             print("           LOGIN ADMINISTRADOR")
             print("=====================================")
             print("Digite Apenas Números!!!")
@@ -147,13 +144,12 @@ while opcao != 3:
             login_senha_admin = int(input("Digite a Senha de ADMINISTRADOR: "))
             print("=====================================")
             if(login_id_admin == admin_id and login_senha_admin == admin_senha):
-                tentativa = 0
+                break
             else:
                 print("ID ou Senha Invalida!!!")
-                tentativa = tentativa - 1
-                print("Tentativas Restantes:", tentativa, "Tentativa")
+                print("Tentativas Restantes:", contador, "Tentativa")
                 print("=====================================")
-                if(tentativa == 0):
+                if(contador == 0):
                     print("Voltando Para o Menu!!!")
         #   Menu Administrador
         if(login_id_admin == admin_id and login_senha_admin == admin_senha):
